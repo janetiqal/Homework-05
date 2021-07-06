@@ -6,8 +6,10 @@ var currentTime = document.getElementById("currentTime");
 time = moment().format('LTS');
 currentTime.innerHTML =time;
 
-var timeRightNow=moment().subtract
-//click event for save button
+// click event for save button & local storage
 $("button").click(function(){
     console.log("button clicked")
+    var inputText = $("textarea").val();
+    console.log(inputText)
+    localStorage.setItem("input", inputText);
 });
