@@ -8,7 +8,8 @@ var currentTime = document.getElementById("currentTime");
 $(document).ready(function(){
 
 // click event for save button & local storage
-$("button").click(function () {
+$("button").click(function (event) {
+    event.preventDefault();
     console.log("button clicked")
     // var inputText = $(".description").val();
     var inputText= $(this).siblings(".description").val();
@@ -39,6 +40,9 @@ function checkHour() {
     for (let i = 0; i < militaryHours.length; i++) {
         console.log(militaryHours[i])
         console.log(currentHour)
+        //check whats passing through into the jquery selector to find the element
+        // console.log(`#${militaryHours[i]}`)
+
         console.log($(`#${militaryHours[i]}`))
         if (currentHour === militaryHours[i]) {
             // $(textarea).addClass("present");
