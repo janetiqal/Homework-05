@@ -21,20 +21,35 @@ $("button").click(function () {
 //for loop? function compares currrent hour to the index of page
 //
 function checkHour() {
-    const militaryHours = ["9", "10", "11", "12", "13", "14", "15", "16", "17"];
+    const militaryHours = [9, 10, 11, 12, 13, 14, 15, 16, 17];
     const currentHour = moment().hour();
-    
+    //added ID's to each individual textarea to correspond to military hours index. looping through the array at the same time were also checking the ID of the text area to identify it 
     for (let i = 0; i < militaryHours.length; i++) {
         console.log(militaryHours[i])
         console.log(currentHour)
+        console.log($(`#${militaryHours[i]}`))
         if (currentHour === militaryHours[i]) {
-            $("textarea").addClass("present");
+            $(`#${militaryHours[i]}`).addClass("present");
         } else if (currentHour < militaryHours[i]) {
-            $("textarea").addClass("future");
+            $(`#${militaryHours[i]}`).addClass("future");
         } else (currentHour > militaryHours[i])
-            $("textarea").addClass("past");
+        $(`#${militaryHours[i]}`).addClass("past");
     }
 };
+console.log($("textarea"))
 checkHour();
+
+// function check9am (){
+//     const currentHour= moment().hour();
+//     if (currentHour === 9){
+//         $("#9").addClass("present");
+//     }else if (currentHour < 9){
+//         $("#9").addClass("future");
+//     }else if (currentHour>9){
+//         $("#9").addClass("past");
+//     }
+
+// }check9am();
 //need to do the local storage. get item
 });
+
